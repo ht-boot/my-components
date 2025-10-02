@@ -2,16 +2,6 @@
 import { h, ref, type VNode } from "vue"
 import { ElInput, ElButton, ElSelect, ElOption, ElForm, ElFormItem } from "element-plus"
 
-const props = defineProps({
-    url: {
-        type: String,
-        default: ""
-    }
-})
-
-console.log(props.url, '------');
-
-
 // ---- 类型定义 ----
 interface BaseNode {
     type: string
@@ -54,6 +44,16 @@ const formData = ref<Record<string, any>>({
         phone: ""
     }
 })
+
+// 接受父组件参数
+const props = defineProps({
+    url: {
+        type: String,
+        default: ""
+    }
+})
+
+console.log(props.url, '------');
 
 // ---- 表单引用 ----
 const formRef = ref<any>()
