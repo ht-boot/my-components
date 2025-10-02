@@ -8,9 +8,8 @@ import { ElInput } from 'element-plus'
 
 const vm = getCurrentInstance()
 
-
 // 定义props
-defineProps({
+const props = defineProps({
     abs: {
         type: String,
         default: ''

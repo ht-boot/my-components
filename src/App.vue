@@ -8,12 +8,10 @@ const date = ref(new Date().toLocaleDateString());
 
 const input = useTemplateRef('inputRef');
 
-const onFocus = () => {
-  input.value ? input.value.focus() : null;
-}
-
+const modelValue = ref('nihao');
 setTimeout(() => {
-  onFocus()
+  modelValue.value = 'hello'
+  input.value?.focus()
 }, 3000)
 </script>
 
@@ -28,8 +26,10 @@ setTimeout(() => {
       <DynamicForm :url="'http://localhost:3000/api/form'" />
     </div>
     <div class="container_item">
-      <div>MyInput</div>
-      <MyInput ref="inputRef" placeholder="nihao" />
+      <div>组件二次封装</div>
+      <MyInput ref="inputRef" v-model="modelValue" placeholder="请输入内容" clearable>
+        <template #append>@mail.com</template>
+      </MyInput>
     </div>
   </div>
 
