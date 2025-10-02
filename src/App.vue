@@ -14,7 +14,7 @@ const date = ref(new Date().toLocaleDateString());
     </div>
     <div class="container_item">
       <div>动态表单组件</div>
-      <DynamicForm />
+      <DynamicForm :url="'http://localhost:3000/api/form'" />
     </div>
   </div>
 
