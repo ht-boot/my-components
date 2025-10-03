@@ -16,12 +16,16 @@ const props = defineProps({
     }
 })
 
+const demo = () => console.log('我是子组件的方式')
+
 // 暴露给父组件方法 element-plus input 身上的方法
 const funcRef = (exposed: Record<string, any> | null) => {
     if (!vm) return;
-    vm.exposed = exposed;
+    vm.exposed = {
+        ...exposed,
+        demo
+    };
 }
 
-// 推导ElInput的实例类型
-defineExpose({} as ComponentInstance<typeof ElInput>)
+defineExpose({} as ComponentInstance<typeof ElInput> & { demo: () => void })
 </script>

@@ -12,6 +12,7 @@ const modelValue = ref('nihao');
 setTimeout(() => {
   modelValue.value = 'hello'
   input.value?.focus()
+  input.value?.demo()
 }, 3000)
 </script>
 
