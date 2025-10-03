@@ -8,6 +8,10 @@ const date = ref(new Date().toLocaleDateString());
 
 const input = useTemplateRef('inputRef');
 
+const selfFun = (e: string) => {
+  console.log(e, 'selfFun')
+}
+
 const modelValue = ref('nihao');
 setTimeout(() => {
   modelValue.value = 'hello'
@@ -28,7 +32,7 @@ setTimeout(() => {
     </div>
     <div class="container_item">
       <div>组件二次封装</div>
-      <MyInput ref="inputRef" v-model="modelValue" placeholder="请输入内容" clearable>
+      <MyInput ref="inputRef" v-model="modelValue" placeholder="请输入内容" clearable @selfFun="selfFun">
         <template #append>@mail.com</template>
       </MyInput>
     </div>
