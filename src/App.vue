@@ -5,6 +5,7 @@ import DynamicForm from './components/DynamicForm.vue';
 import MyInput from './components/MyInput.vue';
 import Leaflet from './components/Map.vue';
 import MySelect from './components/MySelect.vue';
+import Drag from './components/Drag.vue';
 
 const date = ref(new Date().toLocaleDateString());
 
@@ -55,6 +56,10 @@ const selected = ref('')
     <div class="container_item">
       <div>Leaflet</div>
       <Leaflet></Leaflet>
+    </div>
+    <div class="container_item">
+      <div>Drag</div>
+      <Drag></Drag>
     </div>
   </div>
 </template>
