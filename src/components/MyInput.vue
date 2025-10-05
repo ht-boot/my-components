@@ -1,10 +1,10 @@
 <template>
-    <component :is="h(ElInput, { ...$attrs, ref: funcRef }, $slots)" />
+    <component :is="h(ElInput, { ...$attrs, ...props, ref: funcRef }, $slots)" />
     <button @click="onClick">click</button>
 </template>
 
 <script setup lang="ts">
-import { h, getCurrentInstance, type ComponentInstance } from 'vue'
+import { h, getCurrentInstance } from 'vue'
 import { ElInput } from 'element-plus'
 
 const vm = getCurrentInstance()
@@ -37,5 +37,5 @@ const funcRef = (exposed: Record<string, any> | null) => {
     };
 }
 
-defineExpose({} as ComponentInstance<typeof ElInput> & { demo: () => void })
+defineExpose({} as InstanceType<typeof ElInput> & { demo: () => void })
 </script>

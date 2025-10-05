@@ -236,7 +236,7 @@ const selectedDateLabel = computed(() =>
 .calendar {
     color: var(--text);
     max-width: 420px;
-    margin: 10px;
+    margin: 10px auto;
     height: 350px;
     text-align: center;
     background: var(--cal-bg);
