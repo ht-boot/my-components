@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref, useTemplateRef } from 'vue';
+import { ref, useTemplateRef, } from 'vue';
 import Calendar from './components/Calendar.vue';
 import DynamicForm from './components/DynamicForm.vue';
 import MyInput from './components/MyInput.vue';
 import Leaflet from './components/Map.vue';
 import MySelect from './components/MySelect.vue';
 import Drag from './components/Drag.vue';
+import { MyMessage } from './hooks/useMessage'
+import WebSocket from './components/WebSocket.vue';
 
 const date = ref(new Date().toLocaleDateString());
 
@@ -30,10 +32,18 @@ const cities = [
 ]
 
 const selected = ref('')
+
+const handleClick = () => {
+  MyMessage({})
+}
 </script>
 
 <template>
   <div class="container">
+    <div class="container_item">
+      <div>WebSocket</div>
+      <WebSocket />
+    </div>
     <div class="container_item">
       <div>日历组件</div>
       <Calendar v-model="date" />
@@ -60,6 +70,10 @@ const selected = ref('')
     <div class="container_item">
       <div>Drag</div>
       <Drag></Drag>
+    </div>
+    <div class="container_item">
+      <div>全局单例组件</div>
+      <div @click="handleClick">Click</div>
     </div>
   </div>
 </template>

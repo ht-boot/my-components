@@ -36,10 +36,10 @@ onMounted(() => {
                 const { newIndex = 0, oldIndex = 0 } = evt;
                 // 如果拖动位置没有变化，则不做任何操作
                 if (oldIndex === newIndex) return;
-                const movedItem = options.value[oldIndex];
-                options.value.splice(oldIndex, 1);
+                const movedItem = options.value[oldIndex]; // 获取拖动的元素
+                options.value.splice(oldIndex, 1); // 删除拖动的元素
                 if (!movedItem) return;
-                options.value.splice(newIndex, 0, movedItem);
+                options.value.splice(newIndex, 0, movedItem); // 将拖动的元素插入到新位置
             }
         });
     }
